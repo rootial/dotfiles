@@ -1,0 +1,114 @@
+# Ghostty Configuration — matched to iTerm2 Default profile
+
+# Auto-launch zellij when opening Ghostty (attach existing or create new)
+command = /bin/zsh -l -c 'zellij attach --create main'
+
+# Font (from iTerm2: Ayuthaya 17)
+
+font-family = Monaco
+font-family =  "Source Han Mono SC"
+font-size = 17
+font-feature = -calt -liga
+font-thicken = true
+
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+
+# Color 
+
+background = 000000
+foreground = bbbbbb
+cursor-color = bbbbbb
+selection-background = b4d5ff
+selection-foreground = 000000
+
+
+
+
+# ANSI colors (0-7: normal, 8-15: bright)
+palette = 0=#000000
+palette = 1=#bb0000
+palette = 2=#00bb00
+palette = 3=#bbbb00
+palette = 4=#0000bb
+palette = 5=#bb00bb
+palette = 6=#00bbbb
+palette = 7=#bbbbbb
+palette = 8=#555555
+palette = 9=#ff5555
+palette = 10=#55ff55
+palette = 11=#ffff55
+palette = 12=#5555ff
+palette = 13=#ff55ff
+palette = 14=#55ffff
+palette = 15=#ffffff
+
+# Cursor (non-blinking block)
+cursor-style = block
+cursor-style-blink = false
+cursor-color = #cba6f7
+
+
+# Mouse
+mouse-scroll-multiplier = 1
+mouse-hide-while-typing = true
+
+# Scrollback
+scrollback-limit = 100000
+
+# Background
+background-opacity = 0.92
+background-blur = 32
+
+# Window
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+window-decoration = true
+window-theme = dark
+macos-titlebar-style = transparent
+confirm-close-surface = false
+
+# macOS Option key sends Esc+
+macos-option-as-alt = true
+
+# Keybindings
+keybind = cmd+r=reload_config
+keybind = cmd+comma=open_config
+keybind = cmd+n=new_window
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+shift+0=reset_font_size
+
+# Fix Alt+Arrow for Zellij
+keybind = alt+right=text:\x1b[1;5C
+keybind = alt+left=text:\x1b[1;5D
+
+# CMD+Arrow: beginning/end of line
+keybind = super+right=text:\x05
+keybind = super+left=text:\x01
+
+# CMD+Backspace: delete to line start
+keybind = super+backspace=text:\x15
+
+# Delegate splits/tabs to zellij
+keybind = super+d=unbind
+keybind = super+shift+d=unbind
+keybind = super+t=unbind
+keybind = super+w=unbind
+
+# Quick terminal toggle (global hotkey)
+keybind = global:ctrl+backquote=toggle_quick_terminal
+
+# Misc
+copy-on-select = clipboard
+focus-follows-mouse = false
+quit-after-last-window-closed = true
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+bold-is-bright = false
+click-repeat-interval = 300
+term = xterm-ghostty
