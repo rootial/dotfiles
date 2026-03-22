@@ -28,23 +28,47 @@
     "acpx@frad-dotclaude": true,
     "superpowers@claude-plugins-official": true,
     "git@frad-dotclaude": true,
+    "gitflow@frad-dotclaude": true,
+    "refactor@frad-dotclaude": true,
+    "github@frad-dotclaude": true,
+    "review@frad-dotclaude": true,
+    "code-context@frad-dotclaude": true,
     "recall@FlineDev": true,
     "telegram@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true
+    "claude-md-management@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "impeccable@impeccable": true,
+    "exa-mcp-server@exa-mcp-server": true
   },
   "extraKnownMarketplaces": {
     "frad-dotclaude": {
       "source": {
         "source": "github",
         "repo": "FradSer/dotclaude"
-      }
+      },
+      "autoUpdate": true
     },
     "FlineDev": {
       "source": {
         "source": "git",
         "url": "https://github.com/FlineDev/Marketplace.git"
       }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      },
+      "autoUpdate": true
+    },
+    "exa-mcp-server": {
+      "source": {
+        "source": "github",
+        "repo": "exa-labs/exa-mcp-server"
+      },
+      "autoUpdate": true
     }
   },
   "effortLevel": "high",
