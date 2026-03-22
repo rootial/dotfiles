@@ -4,6 +4,10 @@
 
 # --- 1. System & Productivity ---
 alias reload="source ~/.zshrc"
+alias cz="chezmoi"
+alias czd="chezmoi diff"
+alias cza="chezmoi apply"
+alias cze="chezmoi edit"
 alias brewst="brew bundle --file=~/.config/zsh/Brewfile"
 alias p="pnpm"
 alias ..="cd .."
