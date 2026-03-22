@@ -13,7 +13,7 @@ alias ip="ipconfig getifaddr en0"
 
 # Quick Jump
 alias down="cd ~/Downloads"
-alias dev="cd ~/Developer"
+alias dev="cd ~/repos"
 alias doc="cd ~/Documents"
 
 if type bat &>/dev/null; then

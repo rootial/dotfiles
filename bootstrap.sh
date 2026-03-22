@@ -92,8 +92,8 @@ fi
 # 4. Workspace
 # ==========================================
 print_header "Workspace"
-mkdir -p "$HOME/Developer"
-print_success "$HOME/Developer created"
+mkdir -p "$HOME/repos"
+print_success "$HOME/repos created"
 
 # ==========================================
 # 5. Git
@@ -147,9 +147,11 @@ else
 fi
 
 # ==========================================
-# 9. Claude Code
+# 9. AI Coding Agents
 # ==========================================
-print_header "Claude Code"
+print_header "AI Coding Agents"
+
+# Claude Code
 if ! command -v claude >/dev/null 2>&1; then
   print_step "Installing claude..."
   if curl -fsSL https://claude.ai/install.sh | bash 2>/dev/null; then
@@ -159,6 +161,15 @@ if ! command -v claude >/dev/null 2>&1; then
   fi
 else
   print_success "claude found"
+fi
+
+# Codex
+if command -v npm >/dev/null 2>&1; then
+  if npm install -g @openai/codex --silent 2>/dev/null; then
+    print_success "codex installed"
+  else
+    print_info "codex failed (optional, skipping)"
+  fi
 fi
 
 # ==========================================
