@@ -1,3 +1,6 @@
+# --- Identity ---
+export GITHUB_USERNAME="rootial"
+
 # History Configuration
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=20000
@@ -10,6 +13,7 @@ setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 setopt AUTO_CD
+setopt HIST_IGNORE_SPACE
 
 # CDPATH
 export CDPATH=".:$HOME:$HOME/Developer:$HOME/Downloads:$HOME/Documents"
