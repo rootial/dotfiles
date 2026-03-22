@@ -17,12 +17,12 @@ print_success() { echo -e "${GREEN}${BOLD}  ok $1${NC}"; }
 print_error()   { echo -e "${RED}${BOLD} err $1${NC}"; }
 print_info()    { echo -e "${BLUE}${BOLD}    $1${NC}"; }
 
-echo -e "${CYAN}${BOLD}Starting environment bootstrap...${NC}"
+echo -e "${CYAN}${BOLD}🚀 Starting environment bootstrap...${NC}"
 
 # ==========================================
 # 0. Prerequisites
 # ==========================================
-print_header "Prerequisites"
+print_header "🔧 Prerequisites"
 
 if ! xcode-select -p >/dev/null 2>&1; then
   print_step "Installing Xcode Command Line Tools..."
@@ -38,7 +38,7 @@ print_success "Xcode CLT ready"
 # ==========================================
 # 1. Homebrew
 # ==========================================
-print_header "Homebrew"
+print_header "🍺 Homebrew"
 if ! command -v brew >/dev/null 2>&1; then
   print_step "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -60,7 +60,7 @@ fi
 # ==========================================
 # 2. Homebrew Packages
 # ==========================================
-print_header "Homebrew Packages"
+print_header "📦 Homebrew Packages"
 BREWFILE_PATH="$(cd "$(dirname "$0")" && pwd)/Brewfile"
 if [[ ! -f "$BREWFILE_PATH" ]]; then
   print_error "Brewfile not found at $BREWFILE_PATH"
@@ -72,7 +72,7 @@ print_success "Brew packages synced"
 # ==========================================
 # 3. Dotfiles (chezmoi)
 # ==========================================
-print_header "Dotfiles (chezmoi)"
+print_header "📁 Dotfiles (chezmoi)"
 CHEZMOI_REPO="https://github.com/rootial/dotfiles.git"
 if command -v chezmoi >/dev/null 2>&1; then
   chezmoi init "$CHEZMOI_REPO" --apply
@@ -91,14 +91,14 @@ fi
 # ==========================================
 # 4. Workspace
 # ==========================================
-print_header "Workspace"
+print_header "🏗️ Workspace"
 mkdir -p "$HOME/repos"
 print_success "$HOME/repos created"
 
 # ==========================================
 # 5. Git
 # ==========================================
-print_header "Git"
+print_header "🔧 Git"
 git config --global user.name  "rootial"
 git config --global user.email "brightliu77@gmail.com"
 git config --global core.excludesfile "$HOME/.gitignore_global"
@@ -107,7 +107,7 @@ print_success "Git configured"
 # ==========================================
 # 6. Node.js via nvm
 # ==========================================
-print_header "Node.js (nvm)"
+print_header "🟢 Node.js (nvm)"
 if [[ ! -d "$HOME/.nvm" ]]; then
   print_step "Installing nvm..."
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/HEAD/install.sh | bash
@@ -124,7 +124,7 @@ print_success "Node.js $(node -v) ready"
 # ==========================================
 # 7. Bun
 # ==========================================
-print_header "Bun"
+print_header "🍞 Bun"
 if ! command -v bun >/dev/null 2>&1; then
   print_step "Installing Bun..."
   curl -fsSL https://bun.sh/install | bash
@@ -137,7 +137,7 @@ fi
 # ==========================================
 # 8. uv (Python)
 # ==========================================
-print_header "uv (Python)"
+print_header "⚡ uv (Python)"
 if ! command -v uv >/dev/null 2>&1; then
   print_step "Installing uv..."
   brew install uv
@@ -149,7 +149,7 @@ fi
 # ==========================================
 # 9. AI Coding Agents
 # ==========================================
-print_header "AI Coding Agents"
+print_header "🤖 AI Coding Agents"
 
 # Claude Code
 if ! command -v claude >/dev/null 2>&1; then
@@ -175,5 +175,5 @@ fi
 # ==========================================
 # Done
 # ==========================================
-echo -e "\n${GREEN}${BOLD}Bootstrap complete.${NC}"
+echo -e "\n${GREEN}${BOLD}🎉 Bootstrap complete.${NC}"
 echo -e "${YELLOW}Run ${BOLD}source ~/.zshrc${NC}${YELLOW} or restart your terminal to apply changes.${NC}\n"
