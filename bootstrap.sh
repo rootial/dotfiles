@@ -61,7 +61,7 @@ fi
 # 2. Homebrew Packages
 # ==========================================
 print_header "📦 Homebrew Packages"
-BREWFILE_PATH="$(cd "$(dirname "$0")" && pwd)/dot_config/zsh/Brewfile"
+BREWFILE_PATH="$(cd "$(dirname "$0")" && pwd)/Brewfile"
 if [[ ! -f "$BREWFILE_PATH" ]]; then
   print_error "Brewfile not found at $BREWFILE_PATH"
   exit 1
