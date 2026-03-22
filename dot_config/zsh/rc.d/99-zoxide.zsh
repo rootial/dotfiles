@@ -6,4 +6,6 @@
 # Cache zoxide init using evalcache
 if type zoxide &>/dev/null; then
   _evalcache zoxide init zsh
+  alias j="z"
+  alias ji="zi"
 fi
