@@ -39,11 +39,12 @@ Modular structure loaded by `dot_zshrc` → `dot_config/zsh/rc.d/` in numeric or
 
 | File | Purpose |
 |------|---------|
-| `00-init.zsh` | Tool init: evalcache, starship, nvm, pyenv, Ghostty integration |
+| `00-init.zsh` | Tool init: evalcache, starship, nvm, pyenv, Ghostty integration, GPG, bun, openclaw |
 | `05-compinit.zsh` | Zsh completion system |
-| `20-settings.zsh` | History, keybindings, IGNOREEOF, bat/eza theme |
-| `25-fzf.zsh` | fzf keybindings and preview config |
-| `30-aliases.zsh` | Git, system, eza, of() function |
+| `10-ai-functions.zsh` | claude/codex/gemini/qwen wrappers, provider switching |
+| `20-settings.zsh` | History, CDPATH, GITHUB_USERNAME, keybindings, IGNOREEOF, bat/eza theme |
+| `25-fzf.zsh` | fzf keybindings, preview config, fif/fgb/fgl/fkill functions |
+| `30-aliases.zsh` | Git, system, eza (--hyperlink), brewst, gdu, of() function |
 | `90-plugins.zsh` | Zsh plugin loading |
 | `95-tips.zsh` | Random terminal tip on shell start |
 | `99-zoxide.zsh` | zoxide (smart cd, replaces autojump) |
@@ -60,7 +61,9 @@ Secrets (API keys) go in `~/.config/zsh/.secret` — sourced by `dot_zshrc` but 
 
 - `dot_config/starship.toml` — Starship prompt (Nerd Font, multi-language icons)
 - `dot_config/ghostty/config` — Ghostty terminal (font: Maple Mono NF CN)
+- `dot_config/zellij/config.kdl` — Zellij terminal multiplexer
+- `dot_config/zsh/Brewfile` — Homebrew packages (use `brewst` to sync)
 - `dot_gitignore_global` — Global git ignores (macOS, editors, languages)
-- `dot_zshenv` — Universal env vars (EDITOR, LANG, COLORTERM)
-- `dot_zprofile` — Login shell PATH setup
-- `Brewfile` — All Homebrew packages, casks, and taps
+- `dot_zshenv` — Universal env vars (EDITOR=vim, LANG, COLORTERM)
+- `dot_zprofile` — Login shell PATH (brew, go, pnpm, bun, uv, tailscale, trash)
+- `Brewfile` — Used by bootstrap.sh for fresh machine setup
