@@ -29,7 +29,9 @@
     "superpowers@claude-plugins-official": true,
     "git@frad-dotclaude": true,
     "recall@FlineDev": true,
-    "telegram@claude-plugins-official": false
+    "telegram@claude-plugins-official": false,
+    "skill-creator@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "frad-dotclaude": {
