@@ -1,0 +1,12 @@
+# Interactive Shell Configuration
+
+# 1. Load secret environment variables
+[[ -f "$HOME/.config/zsh/.secret" ]] && source "$HOME/.config/zsh/.secret"
+
+# 2. Load modular configurations
+if [[ -d "$HOME/.config/zsh/rc.d" ]]; then
+  for conf in "$HOME/.config/zsh/rc.d/"*.zsh(N); do
+    source "$conf"
+  done
+  unset conf
+fi

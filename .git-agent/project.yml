@@ -1,0 +1,7 @@
+hook_type: conventional
+scopes:
+    - claude
+    - zsh
+    - bootstrap
+    - starship
+    - ghostty

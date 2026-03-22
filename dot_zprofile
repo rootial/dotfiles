@@ -1,0 +1,41 @@
+# Login Shell — PATH and tool environment setup.
+# Sourced once for login shells. Universal vars belong in .zshenv.
+
+# 1. Homebrew
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x "/usr/local/bin/brew" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# 2. Go
+if command -v go &>/dev/null || [[ -d "$HOME/go/bin" ]]; then
+  export GOPATH="${GOPATH:-$HOME/go}"
+  export PATH="$GOPATH/bin:$PATH"
+fi
+
+# 3. pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+[[ ":$PATH:" != *":$PNPM_HOME:"* ]] && export PATH="$PNPM_HOME:$PATH"
+
+# 4. Bun
+export BUN_INSTALL="$HOME/.bun"
+[[ -d "$BUN_INSTALL/bin" ]] && export PATH="$BUN_INSTALL/bin:$PATH"
+
+# 5. uv / local bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# 6. JetBrains Toolbox
+[[ -d "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ]] && \
+  export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# 7. Tailscale CLI
+[[ -d "/Applications/Tailscale.app/Contents/MacOS" ]] && \
+  export PATH="$PATH:/Applications/Tailscale.app/Contents/MacOS"
+
+# 8. trash
+[[ -d "/opt/homebrew/opt/trash/bin" ]] && \
+  export PATH="/opt/homebrew/opt/trash/bin:$PATH"
+
+# 9. User bin
+[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
