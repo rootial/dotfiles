@@ -16,7 +16,7 @@ setopt AUTO_CD
 setopt HIST_IGNORE_SPACE
 
 # CDPATH
-export CDPATH=".:$HOME:$HOME/Developer:$HOME/Downloads:$HOME/Documents"
+export CDPATH=".:$HOME:$HOME/repos:$HOME/Downloads:$HOME/Documents"
 
 # Modern Tools Theme Settings
 
