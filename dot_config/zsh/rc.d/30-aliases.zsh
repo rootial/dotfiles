@@ -4,6 +4,7 @@
 
 # --- 1. System & Productivity ---
 alias reload="source ~/.zshrc"
+alias brewst="brew bundle --file=~/.config/zsh/Brewfile"
 alias p="pnpm"
 alias ..="cd .."
 alias ...="cd ../.."
