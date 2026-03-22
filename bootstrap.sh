@@ -105,7 +105,20 @@ git config --global core.excludesfile "$HOME/.gitignore_global"
 print_success "Git configured"
 
 # ==========================================
-# 6. Node.js via nvm
+# 6. Rust (Cargo)
+# ==========================================
+print_header "🦀 Rust (Cargo)"
+if ! command -v rustc >/dev/null 2>&1; then
+  print_step "Installing Rust via rustup..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  export PATH="$HOME/.cargo/bin:$PATH"
+  print_success "rustc $(rustc --version) ready"
+else
+  print_success "rustc $(rustc --version) found"
+fi
+
+# ==========================================
+# 7. Node.js via nvm
 # ==========================================
 print_header "🟢 Node.js (nvm)"
 if [[ ! -d "$HOME/.nvm" ]]; then
@@ -122,7 +135,7 @@ nvm alias default lts/*
 print_success "Node.js $(node -v) ready"
 
 # ==========================================
-# 7. Bun
+# 8. Bun
 # ==========================================
 print_header "🍞 Bun"
 if ! command -v bun >/dev/null 2>&1; then
@@ -135,7 +148,7 @@ else
 fi
 
 # ==========================================
-# 8. uv (Python)
+# 9. uv (Python)
 # ==========================================
 print_header "⚡ uv (Python)"
 if ! command -v uv >/dev/null 2>&1; then
@@ -147,7 +160,7 @@ else
 fi
 
 # ==========================================
-# 9. AI Coding Agents
+# 10. AI Coding Agents
 # ==========================================
 print_header "🤖 AI Coding Agents"
 
