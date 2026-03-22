@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with code in this repository.
 
 ## What This Repo Is
 
@@ -23,9 +23,6 @@ chezmoi edit ~/.zshrc
 
 # Add a new file to be managed
 chezmoi add ~/.some-new-config
-
-# Bootstrap a fresh machine
-./bootstrap.sh
 ```
 
 ## Architecture
@@ -34,8 +31,7 @@ chezmoi add ~/.some-new-config
 
 - `dot_*` → `.` prefix in `$HOME` (e.g., `dot_gitignore_global` → `~/.gitignore_global`)
 - `executable_*` → file is made executable on apply
-- No `.tmpl` files — all configs are static (no chezmoi templating in use)
-- `.chezmoiignore` excludes only `dot_config/zsh/.secret` (API keys, never committed)
+- `.chezmoiignore` excludes `dot_config/zsh/.secret` (API keys, never committed)
 
 ### Zsh Configuration
 
@@ -43,31 +39,28 @@ Modular structure loaded by `dot_zshrc` → `dot_config/zsh/rc.d/` in numeric or
 
 | File | Purpose |
 |------|---------|
-| `00-init.zsh` | Tool init: evalcache, starship prompt, fnm (Node.js) |
-| `10-ai-functions.zsh` | Shell functions for AI providers (Gemini, Claude, etc.) |
-| `20-settings.zsh` | Zsh options and behavior |
+| `00-init.zsh` | Tool init: evalcache, starship, nvm, pyenv, Ghostty integration |
+| `05-compinit.zsh` | Zsh completion system |
+| `20-settings.zsh` | History, keybindings, IGNOREEOF, bat/eza theme |
 | `25-fzf.zsh` | fzf keybindings and preview config |
-| `30-aliases.zsh` | Git and system aliases |
+| `30-aliases.zsh` | Git, system, eza, of() function |
 | `90-plugins.zsh` | Zsh plugin loading |
-| `99-zoxide.zsh` | zoxide (smart `cd`) init |
+| `95-tips.zsh` | Random terminal tip on shell start |
+| `99-zoxide.zsh` | zoxide (smart cd, replaces autojump) |
 
 Secrets (API keys) go in `~/.config/zsh/.secret` — sourced by `dot_zshrc` but excluded from this repo.
 
 ### Claude Code Configuration
 
 `dot_claude/` maps to `~/.claude/`:
-- `settings.json` — enabled MCP plugins and tool permissions
-- `executable_statusline.sh` — custom status line (model, dir, git branch)
-
-`dot_config/zsh/dot_claude-providers.toml` maps to `~/.config/zsh/.claude-providers.toml` — 30+ alternative Claude API provider endpoints with model mappings.
+- `settings.json` — enabled plugins, hooks, model config
+- `statusline.sh` — custom status line (model, dir, git branch, API usage)
 
 ### Key Managed Configs
 
-- `dot_config/starship.toml` — Starship prompt (nerd font, multi-language)
-- `ghostty_config` — Ghostty terminal (font: Maple Mono NF CN, theme: system light/dark)
+- `dot_config/starship.toml` — Starship prompt (Nerd Font, multi-language icons)
+- `dot_config/ghostty/config` — Ghostty terminal (font: Maple Mono NF CN)
 - `dot_gitignore_global` — Global git ignores (macOS, editors, languages)
+- `dot_zshenv` — Universal env vars (EDITOR, LANG, COLORTERM)
+- `dot_zprofile` — Login shell PATH setup
 - `Brewfile` — All Homebrew packages, casks, and taps
-
-### Bootstrap Script
-
-`bootstrap.sh` is idempotent and handles full machine setup: Homebrew → Brewfile → chezmoi init → Git config → fnm + pnpm → AI tools (Claude Code, Gemini CLI, Codex) → Bun → uv.
