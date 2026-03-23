@@ -5,8 +5,8 @@ command = /bin/zsh -l -c 'zellij attach --create main'
 
 # Font (from iTerm2: Ayuthaya 17)
 theme = light:Apple System Colors Light,dark:Cursor Dark
-font-family = Monaco
-
+#font-family = Ayuthaya
+font-family =  Maple Mono NF CN
 font-size = 17
 font-feature = -calt -liga
 font-thicken = true
@@ -89,6 +89,8 @@ keybind = ctrl+shift+0=reset_font_size
 # Fix Alt+Arrow for Zellij
 keybind = alt+right=text:\x1b[1;5C
 keybind = alt+left=text:\x1b[1;5D
+keybind = alt+delete=text:\x17
+keybind = super+z=text:\x1f
 
 # CMD+Arrow: beginning/end of line
 keybind = super+right=text:\x05

@@ -8,37 +8,34 @@ elif [[ -x "/usr/local/bin/brew" ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-# 2. Rust (Cargo)
-[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
-
-# 3. Go
+# 2. Go
 if command -v go &>/dev/null || [[ -d "$HOME/go/bin" ]]; then
   export GOPATH="${GOPATH:-$HOME/go}"
   export PATH="$GOPATH/bin:$PATH"
 fi
 
-# 4. pnpm
+# 3. pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 [[ ":$PATH:" != *":$PNPM_HOME:"* ]] && export PATH="$PNPM_HOME:$PATH"
 
-# 5. Bun
+# 4. Bun
 export BUN_INSTALL="$HOME/.bun"
 [[ -d "$BUN_INSTALL/bin" ]] && export PATH="$BUN_INSTALL/bin:$PATH"
 
-# 6. uv / local bin
+# 5. uv / local bin
 export PATH="$HOME/.local/bin:$PATH"
 
-# 7. JetBrains Toolbox
+# 6. JetBrains Toolbox
 [[ -d "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ]] && \
   export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 
-# 8. Tailscale CLI
+# 7. Tailscale CLI
 [[ -d "/Applications/Tailscale.app/Contents/MacOS" ]] && \
   export PATH="$PATH:/Applications/Tailscale.app/Contents/MacOS"
 
-# 9. trash
+# 8. trash
 [[ -d "/opt/homebrew/opt/trash/bin" ]] && \
   export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 
-# 10. User bin
+# 9. User bin
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"

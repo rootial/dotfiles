@@ -33,11 +33,15 @@ else
 fi
 
 # keybindings
+bindkey -e                          # 强制 emacs 模式（修复 ^A/^E 等默认绑定）
+bindkey '^D' delete-char            # 有字符删字，空行触发 EOF（IGNOREEOF 接管）
+bindkey '^U' backward-kill-line     # Ctrl+U 删到行首（非整行）
 # Alt+Arrow word movement (via Ctrl+Arrow sequences from Ghostty)
 bindkey "\x1b[1;5C" forward-word
 bindkey "\x1b[1;5D" backward-word
 
 # Require double ctrl+d to exit
+setopt IGNORE_EOF
 IGNOREEOF=1
 
 # clang / openssl

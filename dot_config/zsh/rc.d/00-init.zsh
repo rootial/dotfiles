@@ -31,7 +31,6 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
-
 # Bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 

@@ -73,6 +73,9 @@
   },
   "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  },
   "model": "opusplan",
   "autoMemoryEnabled": true,
   "statusLine": {
